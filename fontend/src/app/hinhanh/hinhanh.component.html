@@ -1,0 +1,109 @@
+<h3>Upload images with Angular</h3>
+
+<label>
+  Tên:
+  <input type="text" (change)="onTenChanged($event)" />
+</label>
+<br/>
+
+<label>
+  giagoc:
+  <input type="text" (change)="onGiagocChanged($event)" />
+</label>
+<br/>
+
+<label>
+  manhinh:
+  <input type="text" (change)="onManhinhChanged($event)" />
+</label>
+<br/>
+
+<label>
+  chip:
+  <input type="text" (change)="onChipChanged($event)" />
+</label>
+<br/>
+
+
+<label>
+  Ram:
+  <input type="text" (change)="onRamChanged($event)" />
+</label>
+<br/>
+
+
+<label>
+  Bonhotrong:
+  <input type="text" (change)="onBonhotrongChanged($event)" />
+</label>
+<br/>
+
+
+<label>
+  Camerasau:
+  <input type="text" (change)="onCamerasauChanged($event)" />
+</label>
+<br/>
+
+
+<label>
+  Cameratruoc:
+  <input type="text" (change)="onCameratruocChanged($event)" />
+</label>
+<br/>
+
+<label>
+  pin:
+  <input type="text" (change)="onPinChanged($event)" />
+</label>
+<br/>
+
+<label>
+  Cover:
+  <input type="file" (change)="onCoverChanged($event)" />
+</label>
+<br/>
+
+<label>
+  Soluong:
+  <input type="text" (change)="onSoluongChanged($event)" />
+</label>
+<br/>
+
+
+<label>
+  Khuyenmai:
+  <input type="text" (change)="onKhuyenmaiChanged($event)" />
+</label>
+<br/>
+
+
+<label>
+  loai:
+  <input type="text" (change)="onLoainChanged($event)" />
+</label>
+<br/>
+
+<!-- <label>
+  Đường dẫn:
+  <input type="text" (change)="onDuongdanChanged($event)" />
+</label>
+<br/> -->
+<!-- <div class="form-group">
+  <label>mausp</label>
+  <select name="mausp" #mausp="ngModel" [(ngModel)]="service.formData.mausp" class="form-control"
+  [class.is-invalid]="!isValid && service.formData.mausp==0">
+    <option value="0">-Select-</option>
+    <option *ngFor="let item of mauspList" value="{{item.mausp}}">{{item.sanpham}}</option>
+  </select>
+</div> -->
+<!-- <br/>
+<br/>
+<label>
+  Cover:
+  <input type="file" (change)="onImageChanged($event)" />
+</label>
+<br/> -->
+<button (click)="newBook()" >New Book</button>
+
+

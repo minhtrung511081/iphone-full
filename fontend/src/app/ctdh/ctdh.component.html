@@ -1,0 +1,19 @@
+<p>ctdh works!</p>
+<ul>
+    <li *ngFor="let ct of ctdh">
+      <h4>id : {{ct.id}}</h4>
+      <h4>soluong : {{ct.soluong}}</h4>
+      <h4>sanpham : {{ct.sanpham}}</h4>
+      <h4>donhang : {{ct.donhang}}</h4>
+      <button (click)="ctdhClicked(ct)">Chọn</button>
+    </li>
+    soluong  <input type="text" [(ngModel)]="selectedCtdh.soluong"/><br>
+    sanpham  <input type="text" [(ngModel)]="selectedCtdh.sanpham"/><br>
+    donhang  <input type="text" [(ngModel)]="selectedCtdh.donhang"/><br>
+
+    <button type="submit" *ngIf="selectedCtdh.id != -1" (click)="updateCtdhC()"> SỬA </button>
+    <button type="submit" *ngIf="selectedCtdh.id == -1" (click)="createCtdhC()"> THÊM </button>
+    <button type="submit" *ngIf="selectedCtdh.id != -1" (click)="deleteCtdhC()"> XÓA </button>
+    <button type="submit"  *ngIf="selectedCtdh.id != -1" (click)="ctdhallBack()">TRỞ LẠI</button>
+    <button>  <a  routerLink="/sanpham">HOME</a></button>  
+  </ul>

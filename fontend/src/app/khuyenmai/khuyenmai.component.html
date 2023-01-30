@@ -1,0 +1,29 @@
+<!-- <p>khuyenmai works!</p> -->
+<ul>
+    <li *ngFor="let km of khuyenmai">
+     <!-- <h4 >id:{{km.id}}</h4> -->
+      <h4>Mã : {{km.ma}}</h4>
+      <h4>Tên : {{km.ten}}</h4>
+      <h4>Giá trị : {{km.giatri}}%</h4>
+      <!-- <h4 >ngaybd :{{km.ngaybd}} </h4> -->
+      <!-- <h3>{{km.ngaybd | date: 'ddMMyyyy'}}</h3> -->
+      <!-- <h3>{{km.ngaybd | date: 'dd'}}/{{km.ngaybd | date:'MM'}}/{{km.ngaybd | date: 'yyyy'}}</h3> -->
+      <h4>Thời Gian Bắt Đầu: {{km.ngaybd | date:'dd-MM-yyyy HH:mm:ss '}}</h4>
+      <h4 >Thời Gian Kết Thúc : {{km.ngaykt| date:'dd-MM-yyyy HH:mm:ss '}}</h4>
+      <h4 >Thời Gian Tạo : {{km.ngaytao| date:'dd-MM-yyyy HH:mm:ss '}}</h4>
+      <button (click)="kmClicked(km)">Chọn</button>
+    </li>
+    Mã  <input type="text" [(ngModel)]="selectedkm.ma"/><br>
+    Tên  <input type="text" [(ngModel)]="selectedkm.ten"/><br>
+    Giá trị  <input type="text" [(ngModel)]="selectedkm.giatri"/><br>
+    Thời gian bắt đầu  <input type="datetime-local" [(ngModel)]="selectedkm.ngaybd"/><br>
+    Thời gian kết thúc  <input type="datetime-local" [(ngModel)]="selectedkm.ngaykt"/><br>
+    Thời gian tạo <input type="date" [(ngModel)]="selectedkm.ngaytao"/><br>
+    
+  <button type="submit" *ngIf="selectedkm.id != -1" (click)="updateKmC()"> SỬA </button>
+  <button type="submit" *ngIf="selectedkm.id == -1" (click)="createKmC()"> THÊM </button>
+  <button type="submit" *ngIf="selectedkm.id != -1" (click)="deleteKmC()"> XÓA </button>
+  <button type="submit"  *ngIf="selectedkm.id != -1" (click)="kmallBack()">TRỞ LẠI</button>
+  <button>  <a  routerLink="/sanpham">HOME</a></button>  
+  </ul>
+  

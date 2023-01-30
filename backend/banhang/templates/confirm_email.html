@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cám ơn bạn đã đặt hàng! </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width">
+
+
+</head>
+
+<body style="margin: 0">
+<style type="text/css">
+    body {
+        margin: 0;
+    }
+
+    h1 a:hover {
+        font-size: 30px;
+        color: rgb(51, 51, 51);
+    }
+
+    h1 a:active {
+        font-size: 30px;
+        color: rgb(51, 51, 51);
+    }
+
+    h1 a:visited {
+        font-size: 30px;
+        color: rgb(51, 51, 51);
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a:active {
+        text-decoration: none;
+    }
+
+    a:visited {
+        text-decoration: none;
+    }
+
+    .button__text:hover {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+
+    .button__text:active {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+
+    .button__text:visited {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: rgb(230, 230, 41);
+    }
+
+    a:active {
+        color: rgb(230, 230, 41);
+    }
+
+    a:visited {
+        color: rgb(230, 230, 41);
+    }
+
+    @media (max-width: 600px) {
+        .container {
+            width: 94% !important;
+        }
+
+        .main-action-cell {
+            float: none !important;
+            margin-right: 0 !important;
+        }
+
+        .secondary-action-cell {
+            text-align: center;
+            width: 100%;
+        }
+
+        .header {
+            margin-top: 20px !important;
+            margin-bottom: 2px !important;
+        }
+
+        .shop-name__cell {
+            display: block;
+        }
+
+        .order-number__cell {
+            display: block;
+            text-align: left !important;
+            margin-top: 20px;
+        }
+
+        .button {
+            width: 100%;
+        }
+
+        .or {
+            margin-right: 0 !important;
+        }
+
+        .apple-wallet-button {
+            text-align: center;
+        }
+
+        .customer-info__item {
+            display: block;
+            width: 100% !important;
+        }
+
+        .spacer {
+            display: none;
+        }
+
+        .subtotal-spacer {
+            display: none;
+        }
+    }
+</style>
+<table class="body" style="border-spacing: 0;border-collapse: collapse;height: 100% !important;width: 100% !important">
+    <tbody>
+    <tr>
+        <td style="font-family: -apple-system, BlinkMacSystemFont">
+
+            <table class="header row"
+                   style="border-spacing: 0;border-collapse: collapse;width: 100%;margin: 40px 0 20px">
+                <tbody>
+                <tr>
+                    <td class="header__cell"
+                        style="font-family: -apple-system, BlinkMacSystemFont">
+                
+
+                            <table class="container"
+                                   style="border-spacing: 0;border-collapse: collapse;width: 560px;text-align: left;margin: 0 auto">
+                                <tbody>
+                                <tr>
+                                    <td style="font-family: -apple-system, BlinkMacSystemFont">
+
+                                        <table class="row"
+                                               style="border-spacing: 0;border-collapse: collapse;width: 100%">
+                                            <tbody>
+                                            <tr>
+
+                                                <td class="order-number__cell"
+                                                    style="font-family: -apple-system, BlinkMacSystemFont">
+                      <span class="order-number__text" style="font-size: 16px">
+                        Đơn hàng  #{{ order_number }}
+                      </span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                    
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="row content" style="border-spacing: 0;border-collapse: collapse;width: 100%">
+                <tbody>
+                <tr>
+                    <td class="content__cell">
+                            <table class="container"
+                                   style="border-spacing: 0;border-collapse: collapse;width: 560px;text-align: left;margin: 0 auto">
+                                <tbody>
+                                <tr>
+                                    <td style="font-family: -apple-system, BlinkMacSystemFont">
+
+                                        <h2 style="font-weight: normal;margin: 0;font-size: 24px;margin-bottom: 10px">
+                                            Cám ơn bạn đã đặt hàng! </h2>
+                                        <p style="margin: 0;color: #777;line-height: 150%;font-size: 16px">Xin chào 
+                                            {{ username }},Chúng tôi đã nhận được đơn đặt hàng của bạn và đang xử lý.
+                                            Hãy chờ ,Chúng tôi sẽ gọi bạn để xác nhận.</p>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="row section"
+                   style="border-spacing: 0;border-collapse: collapse;width: 100%;border-top: 1px solid #e5e5e5">
+                <tbody>
+                <tr>
+                    <td class="section__cell"
+                        style="font-family: -apple-system, BlinkMacSystemFont">
+            
+                            <table class="container"
+                                   style="border-spacing: 0;border-collapse: collapse;width: 560px;text-align: left;margin: 0 auto">
+                                <tbody>
+                                <tr>
+                                    <td style="font-family: -apple-system, BlinkMacSystemFont">
+                                        <h3 style="font-weight: normal;margin: 0;font-size: 20px;margin-bottom: 25px">
+                                            Chi tiết đơn hàng</h3>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="container"
+                                   style="border-spacing: 0;border-collapse: collapse;width: 560px;text-align: left;margin: 0 auto">
+                                <tbody>
+                                <tr>
+                                    <td style="font-family: -apple-system, BlinkMacSystemFont">
+
+
+                                        <table class="row"
+                                               style="border-spacing: 0;border-collapse: collapse;width: 100%">
+
+
+                                            <tbody>
+                                            <tr class="order-list__item order-list__item--first"
+                                                style="width: 100%;border-bottom: 1px ">
+                                                <td class="order-list__item__cell"
+                                                    style="font-family: -apple-system, BlinkMacSystemFont">
+                                                    <table style="border-spacing: 0;border-collapse: collapse">
+                                                        <tbody>
+
+                                                        {% for item in items %}
+
+                                                        <tr>
+                                                            <td class="order-list__product-description-cell"
+                                                                style="font-family: -apple-system, BlinkMacSystemFont">
+
+
+                                                                    <span class="order-list__item-title"
+                                                                          style="font-size: 16px;font-weight: 600;line-height: 1.4;color: #555">{{ item.sanpham.ten }}&nbsp;×&nbsp;{{ item.soluong }}</span><br>
+
+                                                            </td>
+                                                            <td class="order-list__price-cell"
+                                                                style="font-family: -apple-system, BlinkMacSystemFont">
+
+                                                                <p class="order-list__item-price"
+                                                                   style="margin: 0;color: #555;line-height: 150%;font-size: 16px;font-weight: 600;text-align: right;margin-left: 15px">
+                                                                    {{ item.price_total }}</p>
+                                                            </td>
+                                                        </tr>
+                                                        <br>
+
+
+                                                        {% endfor %}
+
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                        <table class="row subtotal-lines"
+                                               style="border-spacing: 0;border-collapse: collapse;width: 100%;margin-top: 15px;border-top: 1px ">
+                                            <tbody>
+                                            <tr>
+                                                <td class="subtotal-spacer"
+                                                    style="font-family: -apple-system, BlinkMacSystemFont">
+                                                <td style="font-family: -apple-system, BlinkMacSystemFont">
+
+                                                    <table class="row subtotal-table subtotal-table--total"
+                                                           style="border-spacing: 0;border-collapse: collapse;width: 100%;margin-top: 20px;border-top: 2px solid #e5e5e5">
+
+                                                        <tbody>
+                                                        <tr class="subtotal-line">
+                                                            <td class="subtotal-line__title"
+                                                                style="font-family: -apple-system, BlinkMacSystemFont">
+                                                                <p style="margin: 0;color: #777;line-height: 1.2em;font-size: 16px">
+                                                                    <span style="font-size: 16px">Tổng cộng</span>
+                                                                </p>
+                                                            </td>
+                                                            <td class="subtotal-line__value"
+                                                                style="font-family: -apple-system, BlinkMacSystemFont">
+                                                                <strong style="font-size: 24px;color: #555">{{ total_price }}
+                                                                    VND</strong>
+                                                            </td>
+                                                        </tr>
+
+                                                        </tbody>
+                                                    </table>
+
+
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="row section"
+                   style="border-spacing: 0;border-collapse: collapse;width: 100%;border-top: 1px solid #e5e5e5">
+                <tbody>
+                <tr>
+                    <td class="section__cell"
+                        style="font-family: -apple-system, BlinkMacSystemFont">
+                
+                            <table class="container"
+                                   style="border-spacing: 0;border-collapse: collapse;width: 560px;text-align: left;margin: 0 auto">
+                                <tbody>
+                                <tr>
+                                    <td style="font-family: -apple-system, BlinkMacSystemFont">
+                                        <h3 style="font-weight: normal;margin: 0;font-size: 20px;margin-bottom: 25px">
+                                            Thông tin khách hàng</h3>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="container"
+                                   style="border-spacing: 0;border-collapse: collapse;width: 560px;text-align: left;margin: 0 auto">
+                                <tbody>
+                                <tr>
+                                    <td style="font-family: -apple-system, BlinkMacSystemFont">
+
+                                        <table class="row"
+                                               style="border-spacing: 0;border-collapse: collapse;width: 100%">
+                                            <tbody>
+                                            <tr>
+
+                                                <td class="customer-info__item"
+                                                    style="font-family: -apple-system, BlinkMacSystemFont">
+                                                    <h4 style="font-weight: 500;margin: 0;font-size: 16px;color: #555;margin-bottom: 5px">
+                                                        {{ first_name }} {{ last_name }}</h4>
+                                                    <p style="margin: 0;color: #777;line-height: 150%;font-size: 16px">
+                                                        {{ email }}<br>
+                                                        {{ phone }}<br>
+                                                        {{ address }}
+                                                    </p>
+
+                                                </td>
+
+
+                                            </tr>
+                                            </tbody>
+                                        </table>
+
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

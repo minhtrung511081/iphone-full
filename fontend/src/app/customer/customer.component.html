@@ -1,0 +1,62 @@
+
+<!-- <ul>
+  <li *ngFor="let movie of movies">
+    <h2>Id : {{movie.id}}</h2>
+    <h2 >Loại : {{movie.loai}}</h2>
+    <button (click)="movieClicked(movie)">Chọn</button>
+    <button (click)="movieBack(movie)">Back</button>
+
+
+  </li>
+  Loai  <input type="text" [(ngModel)]="selectedMovie.loai"/><br>
+
+<button type="submit" *ngIf="selectedMovie.id != -1" (click)="updateMovie()"> SỬA </button>
+<button type="submit" *ngIf="selectedMovie.id == -1" (click)="createMovie()"> THÊM </button>
+<button type="submit" *ngIf="selectedMovie.id != -1" (click)="deleteMovie()"> XÓA </button>
+  <button type="submit"  *ngIf="selectedMovie.id != -1" (click)="movieallBack()">TRỞ LẠI</button>
+</ul>
+<hr> -->
+
+
+
+<div class="wrapper">
+  <app-headerc></app-headerc>
+  <app-sidebar></app-sidebar>
+  <div class="container my-5">
+    <div class="row"> 
+
+      <div class="col">
+        <table class="table table-bordered">
+          <thead class="bg-dark text-light">
+          <tr>
+            <th>ID</th>
+            <th>Loại</th>
+          </tr>
+          </thead>
+  
+          <tbody>
+            <tr *ngFor="let movie of movies">
+              <td>{{movie.id}}&nbsp;<button class="btn btn-info" (click)="movieClicked(movie)">Chọn</button></td>
+              <td>{{movie.loai}}</td>
+            </tr>
+
+            <tr>
+              <td><button class="btn btn-warning" type="submit" *ngIf="selectedMovie.id != -1" (click)="updateMovie()"> SỬA </button>&nbsp;
+                <button class="btn btn-success" type="submit" *ngIf="selectedMovie.id == -1" (click)="createMovie()"> THÊM </button>&nbsp;
+                <button class="btn btn-danger" type="submit" *ngIf="selectedMovie.id != -1" (click)="deleteMovie()"> XÓA </button>&nbsp;
+                <button class="btn btn-light" type="submit"  *ngIf="selectedMovie.id != -1" (click)="movieallBack()">LÙI</button></td>
+              <td><input id="exampleForm2" class="form-control" style="color: black;" width="10" type="text" [(ngModel)]="selectedMovie.loai"/></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- <app-footerc></app-footerc> -->
+</div>
+
+
+
+
+
+

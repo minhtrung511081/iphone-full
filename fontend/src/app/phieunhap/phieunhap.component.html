@@ -1,0 +1,236 @@
+<div class="wrapper">
+  <app-headerc></app-headerc>
+  <app-sidebar></app-sidebar>
+  <div class="container my-5">
+    <div class="row"> 
+
+      <div class="col">
+        <table class="table table-bordered">
+          <thead class="bg-dark text-light">
+          <tr>
+            <th>Phiếu nhập</th>
+            <!-- <th width="20%" hight="10">Ảnh  </th> -->
+            <!-- <th width="25%">Tên</th> -->
+            <!-- <th width="40%">Description</th> -->
+            <th width="20%">Nguồn nhập</th>
+            <th width="20%">Tài khoản tạo</th>
+            <th width="20%">Ngày tạo</th>
+            <th width="40%">Chọn sản phẩm và số lượng</th>
+            <th width="40%">Chỉnh sửa chi tiết</th>
+            <th width="40%">Chỉnh sửa phiếu nhập</th>
+            <!-- <th width="100%">Chi tiết phiếu nhập</th> -->
+          </tr>
+          </thead>
+  
+          <tbody>
+          <tr *ngFor="let p of phieunhap">
+            <td>{{ p.id }}</td>
+            <!-- <td><img [src]="p.cover" alt="{{p.ten}}"  class="card-img-top" ></td> -->
+            <!-- <td>{{ p.ten }}<br>Màn hình : {{p.manhinh}}<br>Bộ nhớ trong : {{p.bonhotrong}}<br>Chip : {{p.chip}}<br>Ram : {{p.ram}}<br>Camera sau : {{p.camerasau}}<br>Camera trước : {{p.cameratruoc}}</td> -->
+            <td>{{ p.nguonnhap }}</td>
+            <td>{{ p.staff}}</td>
+            <td>{{ p.ngaytao}}</td>
+            <!-- <td>{{ p.loai }}</td> -->
+            
+            <td>
+              <select [(ngModel)]="selectcreate.sanpham" class="browser-default custom-select">
+                <option value="" selected>Chọn sản phẩm </option>
+                <option *ngFor="let sp of selectedsp" [value]="sp.id">{{sp.ten}}</option>
+              </select>
+
+              <!-- <div class="def-number-input number-input safari_only">
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
+                <input class="quantity" min="0" name="quantity" value="1" type="number">
+                <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
+              </div> -->
+              <br>
+              <br>
+              Chọn số lượng : <input type="number" value="1" min="1" max="10"[(ngModel)]="selectcreate.soluong"/><br>
+            </td>
+
+            <td>
+              <!-- <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">Delete</button> -->
+              
+              <button class="btn btn-primary" (click)="xem(p)">Chi Tiết</button>&nbsp;
+              <button class="btn btn-info" (click)="them(p)">Thêm</button>
+           </td>
+
+           <td>
+              <select [(ngModel)]="selectedP.nguonnhap" >
+                <option value="" selected>Chọn nguồn nhập</option>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+                <option *ngFor="let sp of selectedS" [value]="sp.id">{{sp.name}}</option>
+              </select> 
+              <button class="btn btn-success" *ngIf="selectedP.id == -1" (click)="PClicked(p)">Chọn</button>&nbsp;
+              <button class="btn btn-info" type="submit" *ngIf="selectedP.id == -1" (click)="createPC()"> THÊM </button>&nbsp;
+              <button class="btn btn-warning" type="submit" *ngIf="selectedP.id != -1" (click)="updatePC()"> SỬA </button>&nbsp;
+              <button class="btn btn-danger" type="submit" *ngIf="selectedP.id != -1" (click)="deletePC()"> XÓA </button>&nbsp;
+              <button class="btn btn-success" type="submit"  *ngIf="selectedP.id != -1" (click)="PallBack()">TRỞ LẠI</button>&nbsp;
+           </td>
+
+           <td>
+             
+           </td>
+
+          </tr>
+          <tr>
+            <td>
+              <!-- <table > -->
+                <!-- <tr>
+                  <td>sản phẩm</td>
+                  <td>số lượng</td>
+                  <td>giá</td>
+                </tr> -->
+                <!-- <tr *ngFor="let ct of selectedCtpn"> -->
+              
+              
+                      <!-- <h4>Item : {{ct.id}}</h4> -->
+                      <!-- <td>{{ct.sanpham}}</td> -->
+                      <!-- <td>{{ct.soluong}}</td> -->
+                      <!-- sanpham  <input type="text" [(ngModel)]="selectcreate.sanpham"/><br> -->
+                      <!-- <h4>Phieu Nhap : {{ct.phieunhap}}</h4> -->
+                      <!-- <td>{{ct.gia}}</td> -->
+                  
+                    <!-- <button (click)="ctpnClicked(ct)">Chọn</button> -->
+                  
+                    <!-- <p> Selected id: {{selectcreate.sanpham}} </p>
+                    <p> Selected gia: {{sum}} </p> -->
+                    <!-- <button (click)="add(selectedCtdh)">gia</button><input type="range">{{sum}} -->
+                  
+                <!-- </tr> -->
+  
+              <!-- </table> -->
+
+
+              <!-- <dir [style.display]="selectedCtpnC.id !=-1 ? 'inline' : 'none'">
+                id <input type="number" [(ngModel)]="selectedCtpnC.id" readonly><br>
+                soluong  <input type="number" [(ngModel)]="selectedCtpnC.soluong"/>&nbsp;
+                sanpham  <input type="text" [(ngModel)]="selectedCtpnC.sanpham"/><br>
+                donhang  <input type="text" [(ngModel)]="selectedCtpnC.donhang" readonly/><br>
+                gia  <input type="text" [(ngModel)]="selectedCtpnC.gia" readonly/><br>
+                <button type="submit" *ngIf="selectedCtpnC.id != -1" (click)="updatectpnC()"> SỬA </button>&nbsp;
+                <button type="submit" *ngIf="selectedCtpnC.id != -1" (click)="deletectpnC()"> XÓA </button>
+            
+              </dir> -->
+
+            </td>
+          </tr>
+            
+          </tbody>
+        </table>
+
+        <div class="container my-5">
+          <div class="row"> 
+      
+            <div class="col">
+              <table class="table table-bordered">
+                <thead class="bg-dark text-light">
+                <tr>
+                  <th>ID</th>
+                  <th>sản phẩm</th>
+                  <th>số lượng</th>
+                  <th>Phiếu nhập kho</th>
+                </tr>
+                </thead>
+        
+                <tbody>
+                  <tr *ngFor="let ct of selectedCtpn">
+                    <td>{{ct.id}}&nbsp;<button class="btn btn-info" (click)="ctpnClicked(ct)">Chọn</button></td>
+                    <td>{{ct.sanpham}}</td>
+                    <td>{{ct.soluong}}</td>
+                    <td>{{ct.phieunhap}}</td>
+                  </tr>
+      
+                  <tr>
+                    
+                    <td><button class="btn btn-warning" type="submit" *ngIf="selectedCtpnC.id != -1" (click)="updatectpnC()"> SỬA </button>&nbsp;
+                      <button class="btn btn-danger" type="submit" *ngIf="selectedCtpnC.id != -1" (click)="deletectpnC()"> XÓA </button>&nbsp;
+                      <td>Đã Chọn : {{selectedCtpnC.id}}</td>
+                      <!-- <button class="btn btn-light" type="submit"  *ngIf="selectedMovie.id != -1" (click)="movieallBack()">LÙI</button></td> -->
+                    <td><input id="exampleForm2" class="form-control" style="color: black;" width="10" type="text" [(ngModel)]="selectedCtpnC.soluong"/></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- <ul>
+        <li *ngFor="let p of phieunhap">
+        <h4 >Phiếu nhập: {{p.id}}</h4>
+          <h4>tongtien : {{p.tongtien}}</h4>
+          <h4> Nguồn nhập : {{p.nguonnhap}}</h4>
+          <h4 > Tài khoản tạo : {{p.staff}}</h4>
+          <h4>Ngày tạo : {{p.ngaytao}}</h4>
+          <button (click)="PClicked(p)">Chọn phiếu nhập</button>
+          <button (click)="xem(p)">Sản phẩm</button>
+          <button (click)="them(p)">Thêm sản phẩm</button>
+            <br>
+            <br>
+            
+            sanpham  <input type="text" [(ngModel)]="selectcreate.sanpham"/>
+            <select [(ngModel)]="selectcreate.sanpham">
+              <option value="" selected>Chọn sản phẩm </option>
+              <option *ngFor="let sp of selectedsp" [value]="sp.id">{{sp.ten}}</option>
+            </select>
+            <input type="number" value="1" min="1" max="10"[(ngModel)]="selectcreate.soluong"/><br>
+        </li>
+    
+    
+          <dir [style.display]="selectedCtpn.id !=-1 ? 'inline' : 'none'">
+            <ul>
+              
+                <li *ngFor="let ct of selectedCtpn" >
+                  
+                  <h4>Item : {{ct.id}}</h4>
+                  <h4>sản phẩm : {{ct.sanpham}}</h4>
+                  <h4>số lượng : {{ct.soluong}}</h4>
+                  sanpham  <input type="text" [(ngModel)]="selectcreate.sanpham"/><br>
+                  <h4>Phieu Nhap : {{ct.phieunhap}}</h4>
+                  <h4>giá : {{ct.gia}} USD</h4>
+                  <button (click)="ctpnClicked(ct)">Chọn</button>
+                </li>
+              
+                <p> Selected id: {{selectcreate.sanpham}} </p>
+                <p> Selected gia: {{sum}} </p>
+                <button (click)="add(selectedCtdh)">gia</button><input type="range">{{sum}}
+                  <dir [style.display]="selectedCtpnC.id !=-1 ? 'inline' : 'none'">
+                    id <input type="number" [(ngModel)]="selectedCtpnC.id" readonly><br>
+                    soluong  <input type="number" [(ngModel)]="selectedCtpnC.soluong"/><br>
+                    sanpham  <input type="text" [(ngModel)]="selectedCtpnC.sanpham"/><br>
+                    donhang  <input type="text" [(ngModel)]="selectedCtpnC.donhang" readonly/><br>
+                    gia  <input type="text" [(ngModel)]="selectedCtpnC.gia" readonly/><br>
+                    <button type="submit" *ngIf="selectedCtpnC.id != -1" (click)="updatectpnC()"> SỬA </button>
+                    <button type="submit" *ngIf="selectedCtpnC.id != -1" (click)="deletectpnC()"> XÓA </button>
+                
+                  </dir>
+            </ul>
+          </dir>
+      
+    
+  
+          tongtien  <input type="text" [(ngModel)]="selectedP.tongtien"/><br>
+          nguon nhap  <input type="text" [(ngModel)]="selectedP.nguonnhap"/><br>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+          account  <input type="text" [(ngModel)]="selectedP.staff"/><br>
+          <br><br>
+          <select [(ngModel)]="selectedP.nguonnhap">
+            <option value="" selected>Chọn nguồn nhập</option>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
+            <option *ngFor="let sp of selectedS" [value]="sp.id">{{sp.name}}</option>
+          </select>                                                                                                       
+          <button type="submit" *ngIf="selectedP.id != -1" (click)="updatePC()"> SỬA </button>
+          <button type="submit" *ngIf="selectedP.id == -1" (click)="createPC()"> THÊM </button>
+          <button type="submit" *ngIf="selectedP.id != -1" (click)="deletePC()"> XÓA </button>
+          <button type="submit"  *ngIf="selectedP.id != -1" (click)="PallBack()">TRỞ LẠI</button>
+            <br><br>
+          <button>  <a  routerLink="/sanpham">Trở về</a></button>
+          <button>  <a  routerLink="/loginnew">Home</a></button>
+    </ul>   -->
+
+  </div>
+  <app-footerc></app-footerc>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="jumbotron text-center">
+          <h1 class="display-3">Cám ơn bạn đã thanh toán ở shop Minh Trung!</h1>
+          <p class="lead"><strong>hãy kiểm tra số tiền trong Paypal</strong></p>
+          <hr>
+          <p>
+  
+          <p>Đơn hàng số  : <strong>{{ctdh[0].donhang}}</strong></p>
+          
+          <!-- <ul >
+            <li *ngFor="let ct of ctdh">{{ct.donhang}}</li>
+            <button (click)="chon(ct.donhang)">{{ct.donhang}}</button>
+          </ul> -->
+        </div>
+   
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>Ảnh</th>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+               
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let p of ctdhnew">
+            <td>
+              
+              <img [src]="sanpham[0].cover" alt="loi" class="img-thumbnail" width="100px">
+            </td>
+            <td>{{p.sanpham}}</td>
+            <td>{{p.gia}}</td>
+            <td>{{p.soluong}}</td>
+            <!-- <button (click)="chon(p.id)">{{p.id}}</button>   -->
+          </tr>
+      
+  
+          <tr class="border-0">
+            <td style="border: none;"></td>
+            <td></td>
+            <td>TOTAL</td>
+            <td>{{cartTotal | currency:'VND'}}</td>
+  
+          </tr>
+          <!-- <tr *ngFor="let f of selectedsp">
+            <td>
+              <img [src]="f.cover" alt="f.ten" class="img-thumbnail" width="100px">
+            </td>
+          </tr> -->
+          <button class="btn btn-primary"><a routerLink="/sanpham">Trang chủ</a></button>&nbsp;
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

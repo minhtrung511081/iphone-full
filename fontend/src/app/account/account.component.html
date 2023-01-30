@@ -1,0 +1,124 @@
+
+<div class="wrapper">
+  <app-headerc></app-headerc>
+  <app-sidebar></app-sidebar>
+  <div class="container my-5">
+    <div class="row"> 
+
+      <div class="col">
+        <table class="table table-bordered">
+          <thead class="bg-dark text-light">
+          <tr>
+            <th>id</th>
+            <th>Tên đăng nhập</th>
+            <th>Quản trị</th>
+            <th>Nhân viên</th>
+            <th>Họ và tên đệm</th>
+            <th>Tên</th>
+            <th>Số điện thoại</th>
+            <th>Địa chỉ</th>
+            <th>Email</th>
+          </tr>
+          </thead>
+  
+          <tbody>
+            <tr *ngFor="let movie of movies">
+              <td>{{movie.id}}<button class="btn btn-info" (click)="movieClicked(movie)">Chọn</button></td>
+              <td>{{movie.username}}</td>
+              <td>{{movie.is_superuser}}</td>
+              <td>{{movie.is_staff}}</td>
+              <td>{{movie.first_name}}</td>
+              <td>{{movie.last_name}}</td>
+              <td>{{movie.phone}}</td>
+              <td>{{movie.email}}</td>
+              <td>{{movie.address}}</td>
+            </tr>
+
+            <!-- <ul>
+              <li *ngFor="let movie of movies">
+                <h2>Id : {{movie.id}}</h2>
+                <h2 > username: {{movie.username}}</h2>
+                <h2 [style.display]="isDivVisible ? 'block' : 'none'" >is_superuser : {{movie.is_superuser}}</h2>
+                <h2 [style.display]="isDivVisible ? 'inline' : 'none'" >is_staff : {{movie.is_staff}}</h2>
+                <h2 >first name : {{movie.first_name}}</h2>
+                <h2 >last name : {{movie.last_name}}</h2>
+                <h2 >phone : {{movie.phone}}</h2>
+                <h2 >email : {{movie.email}}</h2>
+                <h2 >address : {{movie.address}}</h2>
+                <button (click)="movieClicked(movie)">Chọn</button>
+              </li>
+              
+                username <input type="text" [(ngModel)]="selectedMovie.username"/><br>
+                <dir [style.display]="isDivVisible ? 'inline' : 'none'">
+                  is_superuser  <input type="text" [(ngModel)]="selectedMovie.is_superuser" [style.visibility]="isDivVisible ? 'visible' : 'hidden'"/> 
+                  <select>
+                    <option *ngFor="let emp of dungsai" value="emp.id">
+                          {{emp.name}}
+                    </option>
+                  </select><br>
+                
+                  is_staff  <input type="text" [(ngModel)]="selectedMovie.is_staff" [style.display]="isDivVisible ? 'inline' : 'none'"/><br>
+                </dir>
+            
+                first_name  <input type="text" [(ngModel)]="selectedMovie.first_name"/><br>
+                last_name  <input type="text" [(ngModel)]="selectedMovie.last_name"/><br>
+                email <input type="text" [(ngModel)]="selectedMovie.email"/><br>
+                phone  <input type="text" [(ngModel)]="selectedMovie.phone"/><br>
+                address  <input type="text" [(ngModel)]="selectedMovie.address"/><br>
+              
+              
+                <button type="submit" *ngIf="selectedMovie.id != -1" (click)="updateMovie()"> SỬA </button>
+                <button type="submit" *ngIf="selectedMovie.id == -1" (click)="createMovie()"> THÊM </button>
+                <button type="submit" *ngIf="selectedMovie.id != -1" (click)="deleteMovie()"> XÓA </button>
+                <button type="submit"  *ngIf="selectedMovie.id != -1" (click)="movieallBack()">TRỞ LẠI</button>
+            </ul> -->
+
+            <tr>
+              <td><button class="btn btn-warning" type="submit" *ngIf="selectedMovie.id != -1" (click)="updateMovie()"> SỬA </button>
+                <button class="btn btn-success" type="submit" *ngIf="selectedMovie.id == -1" (click)="createMovie()"> THÊM </button>
+                <button class="btn btn-danger" type="submit" *ngIf="selectedMovie.id != -1" (click)="deleteMovie()"> XÓA </button>
+                <button class="btn btn-light" type="submit"  *ngIf="selectedMovie.id != -1" (click)="movieallBack()">LÙI</button></td>
+              <td><input id="exampleForm2" class="form-control" style="color: black;" width="10" type="text" [(ngModel)]="selectedMovie.username"/></td>
+              <td><input id="exampleForm2" class="form-control" style="color: black;" type="text" [(ngModel)]="selectedMovie.is_superuser"/></td>
+              <td><input id="exampleForm2" class="form-control" style="color: black;" type="text" [(ngModel)]="selectedMovie.is_staff"/></td>
+              <td><input id="exampleForm2" class="form-control" style="color: black;" type="text" [(ngModel)]="selectedMovie.first_name"/></td>
+              <td><input id="exampleForm2" class="form-control" style="color: black;" type="text" [(ngModel)]="selectedMovie.last_name"/></td>
+              <td><input id="exampleForm2" class="form-control" style="color: black;" type="text" [(ngModel)]="selectedMovie.phone"/></td>
+              <td><input id="exampleForm2" class="form-control" style="color: black;" type="text" [(ngModel)]="selectedMovie.email"/></td>
+              <td><input id="exampleForm2" class="form-control" style="color: black;" type="text" [(ngModel)]="selectedMovie.address"/></td>
+
+            </tr>
+
+            <!-- <dir [style.visibility]="isDivVisible ? 'visible' : 'hidden'">
+              <h2>List of  thongbao</h2>
+              <ul>
+                <li *ngFor="let tb of thongbaos">
+                  <h2>Id : {{tb.id}}</h2>
+                  <h2 > noidung: {{tb.noidung}}</h2>
+                  <h2 >trangthai : {{tb.trangthai}}</h2>
+              
+                  <button (click)="ThongbaoClicked(tb)">Chọn</button>
+                </li>
+              
+                noidung <input type="text" [(ngModel)]="selectedThongbao.noidung"/><br>
+                trangthai  <input type="text" [(ngModel)]="selectedThongbao.trangthai"/><br>
+              
+              
+                <button  type="submit" *ngIf="selectedThongbao.id != -1" (click)="updateThongbaos()"> SỬA </button>
+                <button  type="submit" *ngIf="selectedThongbao.id == -1" (click)="createThongbaos()"> THÊM </button>
+                <button type="submit" *ngIf="selectedThongbao.id != -1" (click)="deleteThongbaos()"> XÓA </button>
+                <button type="submit"  *ngIf="selectedThongbao.id != -1" (click)="TballBack()">TRỞ LẠI</button>
+                <button>  <a  routerLink="/sanpham">HOME</a></button>  
+              </ul>
+            </dir> -->
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- <app-footerc></app-footerc> -->
+</div>
+
+
+

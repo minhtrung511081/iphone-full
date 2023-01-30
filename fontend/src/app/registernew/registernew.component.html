@@ -1,0 +1,237 @@
+<div class="container my-5">
+    <!-- <ng-container >
+       *ngIf="registrationMessage?.length > 0"
+       <div class="alert alert-success alert-dismissible">
+         {{registrationMessage}}
+       </div>
+     </ng-container> -->
+    
+     <form (ngSubmit)="registerUser()"  class="form-horizontal" novalidate>
+       <div class="row">
+         <div class="col-md-3"></div>
+         <div class="col-md-6">
+           <h2>Register New User</h2>
+           <hr>
+         </div>
+       </div>
+   
+   
+       <div class="row">
+         <div class="col-md-3 field-label-responsive">
+           <label for="uname">Tên Đăng Nhập</label>
+         </div>
+         <div class="col-md-6">
+           <div class="form-group">
+             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+               <div class="input-group-prepend" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+               <input class="form-control" id="username" type="text" [(ngModel)]="register.username" name="username" required>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-3">
+           <div class="form-control-feedback">
+                           <span class="text-danger align-middle">
+                               <!-- Put name validation error messages here -->
+                           </span>
+           </div>
+         </div>
+       </div>
+   
+<!-- ho -->
+       <div class="row">
+         <div class="col-md-3 field-label-responsive">
+           <label for="fname">Họ</label>
+         </div>
+         <div class="col-md-6">
+           <div class="form-group">
+             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+               <div class="input-group-prepend" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+               <!-- <input class="form-control" formControlName="fname" id="fname" name="first_name" [(ngModel)]="register.first_name"
+                      placeholder="Võ"
+                      required type="text"> -->
+            
+                      <input class="form-control" id="first_name" type="text" [(ngModel)]="register.first_name" name="first_name" required>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-3">
+           <div class="form-control-feedback">
+                           <span class="text-danger align-middle">
+                               <!-- Put name validation error messages here -->
+                           </span>
+           </div>
+         </div>
+       </div>
+   
+   <!-- /ho -->
+       
+   <!-- fname -->
+       <div class="row">
+         <div class="col-md-3 field-label-responsive">
+           <label for="lname">Tên</label>
+         </div>
+         <div class="col-md-6">
+           <div class="form-group">
+             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+               <div class="input-group-prepend" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+               <!-- <input class="form-control" formControlName="lname" id="lname" name="lname" [(ngModel)]="register.last_name"
+                      placeholder="Minh Trung" 
+                      required type="text"> -->
+                      <input class="form-control" id="last_name" type="text" [(ngModel)]="register.last_name" name="last_name" required>
+             </div>
+           </div>
+         </div>
+         <div class="col-md-3">
+           <div class="form-control-feedback">
+                           <span class="text-danger align-middle">
+                               <!-- Put name validation error messages here -->
+                           </span>
+           </div>
+         </div>
+       </div>
+       <!-- /fname -->
+
+    <!-- email -->
+       <div class="row">
+         <div class="col-md-3 field-label-responsive">
+           <label for="email">E-Mail Address</label>
+         </div>
+         <div class="col-md-6">
+           <div class="form-group">
+             <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+               <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-at"></i></div>
+               <!-- <input class="form-control" formControlName="email" id="email" name="email" [(ngModel)]="register.email"
+                      placeholder="you@example.com" 
+                      required type="text"> -->
+                      <input class="form-control" id="email" type="text" [(ngModel)]="register.email" name="email" required>
+             </div>
+           </div>
+   
+         </div>
+         <div class="col-md-3">
+           <div class="form-control-feedback">
+             <ng-container>
+                <span class="text-danger align-middle">
+                   <i class="fa fa-close"> Email Already Taken</i>
+                </span>
+             </ng-container>
+             <ng-container>
+               <span class="text-info align-middle">
+                 <i class="fa fa-hourglass"> Checking Email ....</i>
+               </span>
+             </ng-container>
+             <ng-container>
+                <span class="text-success align-middle">
+                               <i class="fa fa-check"> Email Available</i>
+                           </span>
+             </ng-container>
+             <ng-container>
+                             <span class="text-danger align-middle">
+                               <i class="fa fa-check"> Email Required</i>
+                           </span>
+             </ng-container>
+   
+           </div>
+         </div>
+       </div>
+       <!-- email -->
+
+       <!-- password -->
+       <div class="row">
+        <div class="col-md-3 field-label-responsive">
+          <label for="password">Password</label>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group has-danger">
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+              <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+              <!-- <input class="form-control" formControlName="password" id="password" name="password"
+                     placeholder="Password"
+                     required type="password"> -->
+                     <input class="form-control" id="password" type="password" [(ngModel)]="register.password" name="password" required>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-control-feedback">
+          </div>
+        </div>
+       </div>
+       <!-- password -->
+
+
+       <div class="row">
+        <div class="col-md-3 field-label-responsive">
+          <label for="password">ConFirm Password</label>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group has-danger">
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+              <div class="input-group-addon" style="width: 2.6rem"><i class="fa fa-key"></i></div>
+              <!-- <input class="form-control" formControlName="password" id="password" name="password"
+                     placeholder="Password"
+                     required type="password"> -->
+                     <input class="form-control" id="password" type="password" name="password" required>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-control-feedback">
+          </div>
+        </div>
+       </div>
+
+       <div class="row">
+        <div class="col-md-3 field-label-responsive">
+          <label for="address">Address</label>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+              <div class="input-group-prepend" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+              <input class="form-control" id="address" type="text" [(ngModel)]="register.address" name="address" required>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-control-feedback">
+                          <span class="text-danger align-middle">
+                              <!-- Put name validation error messages here -->
+                          </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-3 field-label-responsive">
+          <label for="phone">Phone</label>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+              <div class="input-group-prepend" style="width: 2.6rem"><i class="fa fa-user"></i></div>
+              <input class="form-control" id="phone" type="text" [(ngModel)]="register.phone" name="phone" required>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-control-feedback">
+                          <span class="text-danger align-middle">
+                              <!-- Put name validation error messages here -->
+                          </span>
+          </div>
+        </div>
+      </div>
+
+       <div class="row">
+         <div class="col-md-3"></div>
+         <div class="col-md-6">
+           <button 
+                   class="btn btn-success" type="submit" (click)="registerUser()">
+             <i class="fa fa-user-plus"></i> Register
+           </button>
+         </div>
+       </div>
+     </form>
+   </div>
+   

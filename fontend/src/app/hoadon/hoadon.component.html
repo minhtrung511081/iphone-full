@@ -1,0 +1,78 @@
+
+
+
+
+  <div class="section-title text-center" >
+    <h3 class="title">Đơn Hàng</h3>
+  </div>
+
+  <ul>
+    <li *ngFor="let hoa of hoadon" style="list-style: none;">
+      
+      <div class="order-summary">
+        
+        <div class="order-col">
+          <div><strong>ID</strong></div>
+          <div><strong class="order-total">{{hoa.id}}</strong></div>
+        </div>
+
+        <div class="order-col">
+          <div><strong>Ngày Tạo</strong></div>
+          <div><strong class="order-total">{{hoa.ngaytao}}</strong></div>
+        </div>
+
+        <div class="order-col">
+          <div><strong>Tên Khách Hàng</strong></div>
+          <div><strong class="order-total">{{hoa.customer}}</strong></div>
+        </div>
+      
+      </div> 
+    
+      <!-- <button (click)="hoadonClicked(hoa)">Chọn</button> -->
+      <button type="submit" class="btn btn-danger" (click)="deleteHoadonC(hoa)"> XÓA </button>
+      <button type="button" class="btn btn-success" (click)="ChitietClicked(hoa)">XEM</button>
+      <button type="button" class="btn btn-primary" (click)="add(hoa)">LƯU</button>
+      <button type="button" class="btn btn-primary" (click)="kiemtraC(hoa)">KIEMTRA</button>
+
+    </li>
+  </ul>
+
+  <div class="section-title text-center">
+      <h3 class="title">Chi Tiết</h3>
+  </div>
+
+          
+  <div class="order-summary" >
+
+    <div class="order-col">
+      <div><strong>Sản phẩm</strong></div>
+      <div><strong>Tổng cộng</strong></div>
+    </div>
+
+    <div class="order-products">
+      <div class="order-col" *ngFor="let c of ctdh">
+        <div>{{c.soluong}} x {{c.sanpham}}</div>  
+        <div>{{(c.gia * c.soluong) | currency:'VND'}}</div>
+      </div>
+    </div>
+    
+    <div class="order-col">
+      <div><strong><button type="button" class="btn btn-danger" (click)="add1(selectedCtdh)">TỔNG</button></strong></div>
+      <div><strong class="order-total">{{sum | currency:'USD'}} </strong></div>
+    </div>
+
+  </div>
+
+
+<button type="submit" class="btn btn-warning" (click)="createHoadonC()">TẠO</button>
+<button type="submit" class="btn btn-danger" (click)="taonew()">TẠONEW</button>
+
+<br>
+<br>
+
+<div class="content" role="main">
+  <div #paypal>    
+  </div>
+</div>
+
+

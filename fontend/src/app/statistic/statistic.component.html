@@ -1,0 +1,229 @@
+<!-- loai <input type="text" [(ngModel)]="selectedgui.id"><br> -->
+<!-- Donhang <input type="text" [(ngModel)]="selectedgui.id"><br> -->
+
+
+<div class="wrapper">
+    <app-headerc></app-headerc>
+    <app-sidebar></app-sidebar>
+    <div class="container my-5">
+      <div class="row"> 
+        <div class="col">
+                        <button (click)="qllicked()">Thống kê sản phẩm dựa theo loại</button>
+                        &nbsp;
+                        <select [(ngModel)]="selectedgui.id" class="browser-default custom-select" style="width: 170px;">
+                            <option value="" selected>Chọn loại iphone</option>
+                            <option *ngFor="let sp of selectedloai" [value]="sp.id">{{sp.loai}}</option>
+                        </select>
+                        <br>
+                        <br>
+                        <button (click)="addlicked()">Thống kê xem địa chỉ giao hàng dựa trên đơn hàng </button>
+                        &nbsp;
+                        <select [(ngModel)]="selectedadd.id" class="browser-default custom-select" style="width: 150px;">
+                            <option value="" selected>Chọn đơn hàng</option>
+                            <option *ngFor="let sp of selectedhoadon" [value]="sp.id">{{sp.id}}</option>
+                        </select>
+                        <br>
+                        <br>
+                        <button (click)="nhaplicked()">Thống kê phiếu nhập dựa trên sản phẩm</button>
+                        &nbsp;
+                        <select [(ngModel)]="selectedguinhap.id" class="browser-default custom-select" style="width: 200px;">
+                            <option value="" selected>Chọn sản phẩm </option>
+                            <option *ngFor="let sp of selectedsp" [value]="sp.id">{{sp.ten}}</option>
+                        </select>
+
+                        <br>
+                        <br>
+                        <button (click)="thongkeC()">Thống kê số tiền bán  dựa trên sản phẩm</button>
+                        &nbsp;
+                        <select [(ngModel)]="selectedguinhap.id" class="browser-default custom-select" style="width: 200px;">
+                            <option value="" selected>Chọn sản phẩm </option>
+                            <option *ngFor="let sp of selectedsp" [value]="sp.id">{{sp.ten}}</option>
+                        </select>
+                        <br>
+                        <br>
+                        <button (click)="thongkeallC()">Tổng</button>
+                        &nbsp;
+                        <select [(ngModel)]="selectedguinhap.id" class="browser-default custom-select" style="width: 200px;">
+                            <option value="" selected>Chọn sản phẩm </option>
+                            <option *ngFor="let sp of selectedsp" [value]="sp.id">{{sp.ten}}</option>
+                        </select>
+
+                        
+                        <!-- <ul [style.display]="selectedaddress.id !=-1 ? 'inline' : 'none'" >
+                            <li *ngFor="let p of selectedaddress">
+                            <h4 >Đơn hàng:{{p.id_bill}}</h4>
+                            <h4 >Item:{{p.id}}</h4>
+                            <p>Tên sản phẩm : {{p.sanpham}}</p>
+                            <p>số lượng : {{p.soluong}}</p>
+                            <p> Giá : {{p.gia}}</p>
+                            <p> Địa chỉ giao hàng : {{p.address}}</p>
+                            <p> Tên người nhận : {{p.ten}}</p>
+                            <p> Họ và tên : {{p.first_name}} {{p.last_name}} </p>
+
+                            <br>
+                            </li>
+                        </ul> -->
+
+
+                        <table class="table table-bordered">
+                            <thead class="bg-dark text-light">
+                            <tr>
+                                <th>Tên</th>
+                                <th>số lượng trong kho</th>
+                                <th>Giá gốc</th>
+                            </tr>
+                            </thead>
+                    
+                            <tbody>
+                            <tr *ngFor="let p of selectedql">
+                                <td>{{p.ten}}</td>
+                                <td>{{p.soluong}}</td>
+                                <td>{{p.giagoc}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="table table-bordered">
+                            <thead class="bg-dark text-light">
+                            <tr>
+                                <th>Tên sản phẩm</th>
+                                <th>số lượng</th>
+                                <th>Giá</th>
+                                <th>Địa chỉ giao hàng</th>
+                                <th>Họ và tên</th>
+                                <!-- <th width="20%">Chỉnh sửa chi tiết</th>
+                                <th width="40%">Chỉnh sửa phiếu nhập</th>
+                                <th width="40%">Chi tiết phiếu nhập</th> -->
+                            </tr>
+                            </thead>
+                    
+                            <tbody>
+                            <tr *ngFor="let p of selectedaddress">
+                                <td>{{p.sanpham}}</td>
+                                <td>{{p.soluong}}</td>
+                                <td>{{p.gia}}</td>
+                                <td>{{p.address}}</td>
+                                <!-- <p> Tên người nhận : {{p.ten}}</p> -->
+                                <td>{{p.first_name}} {{p.last_name}} </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <br>
+
+                        <table class="table table-bordered">
+                            <thead class="bg-dark text-light">
+                            <tr>
+                                <th>Đơn hàng</th>
+                                <th>Tên sản phẩm</th>
+                                <th>số lượng</th>
+                                <th>Giá</th>
+                                <th>Tổng</th>
+                            </tr>
+                            </thead>
+                    
+                            <tbody>
+                            <tr *ngFor="let p of thongke">
+                                <td>{{p.bill}}</td>
+                                <td>{{p.sanpham}}</td>
+                                <td>{{p.soluong}}</td>
+                                <td>{{p.gia}}</td>
+                                <td>{{p.tongcong}}</td>
+                            </tr>
+                            <tr *ngFor="let p of thongkeall">
+                                <td></td>
+                                <td></td>
+                                <td>{{p.soluong_total}}</td>
+                                <td></td>
+                                <td>{{p.total_money}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+
+
+                        
+
+
+                        <!-- <ul [style.display]="selectedql.id !=-1 ? 'inline' : 'none'">
+                            <br>
+                            <br>
+                            <li *ngFor="let p of selectedql">
+                            <h4 >id:{{p.id}}</h4>
+                            <h4>Tên  : {{p.ten}}</h4>
+                            <h4 > số lượng trong kho : {{p.soluong}}</h4>
+                            <h4> Giá gốc : {{p.giagoc}} usd</h4>
+                            <h4> Loại : {{p.loai}}</h4>
+                            <br>
+                            </li>
+                        </ul> -->
+            
+
+                        <br>
+
+                        <!-- <ul [style.display]="selectednhap.id !=-1 ? 'inline' : 'none'">
+                            <li *ngFor="let p of selectednhap">
+                            <h4 >id:{{p.id}}</h4>
+                            <h4 > Hóa đơn : {{p.bill}}</h4>
+                            <h4 > Tên Công ty nhập : {{p.address}}</h4>
+                            <h4>Tên  : {{p.sanpham}}</h4>
+                            <h4 > Tên người nhập : {{p.username}}</h4>
+                            <h4>Số lượng : {{p.soluong}}</h4>
+                            <h4>Giá : {{p.gia}}</h4>
+                            <h4 >Loại : {{p.loai}}</h4>
+                            
+                            <h4 > first_name_customer : {{p.first_name_customer}}</h4>
+                            <h4 > last_name_customer : {{p.last_name_customer}}</h4>
+                            <br>
+                            </li>
+                        </ul> -->
+                        <br>
+                        <table class="table table-bordered">
+                            <thead class="bg-dark text-light">
+                            <tr>
+                                <th>Hóa đơn</th>
+                                <th>Tên Công ty nhập</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Tên người nhập</th>
+                                <th>Số lượng</th>
+                                <th>Giá</th>
+                                <th>Loại</th>
+                            </tr>
+                            </thead>
+                    
+                            <tbody>
+                            <tr *ngFor="let p of selectednhap">
+                                <td>{{p.bill}}</td>
+                                <td>{{p.address}}</td>
+                                <td>{{p.sanpham}}</td>
+                                <td>{{p.username}}</td>
+                                <td>{{p.soluong}}</td>
+                                <td>{{p.gia}}</td>
+                                <td>{{p.loai}}</td>
+                            </tr>
+                            </tbody>
+                            </table>
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+   
+
+    <!-- <app-footerc></app-footerc> -->
+</div>
+  
+
+
+
+
+
+
+
+
+
+  

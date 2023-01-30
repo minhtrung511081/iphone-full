@@ -1,0 +1,60 @@
+<app-headerc></app-headerc>
+<app-sidebar></app-sidebar>
+<div class="container my-5">
+    <div class="row"> 
+      <div class="col-12">
+        <!-- <div class="alert alert-danger" [hidden]="!hasError"> -->
+          <!-- {{ errorMessage }} -->
+        <!-- </div> -->
+        <!-- <div class="alert alert-success" [hidden]="!success"> -->
+          <!-- {{ errorMessage }} -->
+        <!-- </div> -->
+      </div>
+
+      <div class="col">
+        <table class="table table-bordered">
+          <thead class="bg-dark text-light">
+          <tr>
+            <th>Id</th>
+            <th width="20%" hight="10">Ảnh  </th>
+            <th width="25%">Tên</th>
+            <!-- <th width="40%">Description</th> -->
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Loại</th>
+            <th>Hoạt động</th>
+          </tr>
+          </thead>
+  
+          <tbody>
+          <tr *ngFor="let p of sanpham">
+            <td>{{ p.id }}</td>
+            <td><img [src]="p.cover" alt="{{p.ten}}"  class="card-img-top" ></td>
+            <td>{{ p.ten }}<br>Màn hình : {{p.manhinh}}<br>Bộ nhớ trong : {{p.bonhotrong}}<br>Chip : {{p.chip}}<br>Ram : {{p.ram}}<br>Camera sau : {{p.camerasau}}<br>Camera trước : {{p.cameratruoc}}</td>
+            <!-- <td>{{ p.description }}</td> -->
+            <td>{{ p.giagoc | currency:'VND' }}</td>
+            <td>{{ p.soluong}}</td>
+            <td>{{ p.loai }}</td>
+            <td>
+              <button class="btn btn-sm btn-danger" (click)="deleteProduct(p.id)">Delete</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <app-footerc></app-footerc>
+
+<!-- <div class="container my-5">
+  <div class="row"> 
+    
+    <app-phieunhap></app-phieunhap>
+    
+  </div>
+  <dir class="row">
+    <app-login></app-login>
+  </dir>
+
+</div> -->
+  

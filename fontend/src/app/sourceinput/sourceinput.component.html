@@ -1,0 +1,22 @@
+<!-- <p>Hello works!</p> -->
+<ul>
+    <li *ngFor="let s of sourceinput">
+     <!-- <h4 >id:{{s.id}}</h4> -->
+      <h4>Name : {{s.name}}</h4>
+      <h4>Email : {{s.email}}</h4>
+      <h4>Address : {{s.address}}</h4>
+      <h4 >Phone : {{s.phone}}</h4>
+      <button (click)="SClicked(s)">Chọn</button>
+    </li>
+    name  <input type="text" [(ngModel)]="selectedS.name"/><br>
+    email  <input type="text" [(ngModel)]="selectedS.email"/><br>
+    address  <input type="text" [(ngModel)]="selectedS.address"/><br>
+    phone  <input type="text" [(ngModel)]="selectedS.phone"/><br>
+    
+  <button type="submit" *ngIf="selectedS.id != -1" (click)="updateSC()"> SỬA </button>
+  <button type="submit" *ngIf="selectedS.id == -1" (click)="createSC()"> THÊM </button>
+  <button type="submit" *ngIf="selectedS.id != -1" (click)="deleteSC()"> XÓA </button>
+  <button type="submit"  *ngIf="selectedS.id != -1" (click)="SallBack()">TRỞ LẠI</button>
+  <button>  <a  routerLink="/sanpham">HOME</a></button>  
+  </ul>
+  
